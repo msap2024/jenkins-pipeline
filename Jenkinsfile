@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        terraform 'Terraform'
+        terraform 'terraform'
         git 'Default'
     }
     stages {
