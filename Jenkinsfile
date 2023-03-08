@@ -2,20 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Building..'
-                sh 'terraform init'
+                // checkout([$class:'GitSCM',branches:[[name:'*main']],extensions:[],userREmoteConfigs:[[url:'https://github.com/msap2024/jenkins-pipeline.git']]])
             }
         }
-        stage('Test') {
+        
+        }
+        stage("terraform init") {
             steps {
-                echo 'Testing..'
+                sh ('terraform init')
             }
         }
-        stage('Deploy') {
+        stage('"terraform plan") {
             steps {
-                echo 'Deploying....'
+                echo "Terraform plan"
+                sh ('terraform plan')
             }
         }
     }
