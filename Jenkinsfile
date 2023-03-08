@@ -14,7 +14,7 @@ pipeline {
                 sh ('terraform init')
             }
         }
-        stage('"terraform plan") {
+        stage("terraform plan") {
             steps {
                 echo "Terraform plan"
                 sh ('terraform plan')
